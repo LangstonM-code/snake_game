@@ -30,12 +30,18 @@ public class GamePanel extends JPanel implements ActionListener {
         startGame();
     }
     public void startGame() {
-
+        newFruit();
+        running = true;
+        timer = new Timer(DELAY,this);
+        timer.start();
     }
     public void paintComponent(Graphics g) {
 
     }
     public void draw(Graphics g) {
+
+    }
+    public void newFruit(){
 
     }
     public void move() {
