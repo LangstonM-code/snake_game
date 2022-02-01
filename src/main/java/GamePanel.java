@@ -45,13 +45,25 @@ public class GamePanel extends JPanel implements ActionListener {
             g.drawLine((i*UNIT_SIZE),0,(i*UNIT_SIZE),SCREEN_HEIGHT);
             g.drawLine(0,(i*UNIT_SIZE),SCREEN_WIDTH,(i*UNIT_SIZE));
         }
+        g.setColor(Color.MAGENTA);
+        g.fillOval(fruitX, fruitY, UNIT_SIZE, UNIT_SIZE);
 
     }
     public void newFruit(){
-
+        fruitX = random.nextInt((int) (SCREEN_WIDTH/UNIT_SIZE))*UNIT_SIZE;
+        fruitY = random.nextInt((int) (SCREEN_HEIGHT/UNIT_SIZE))*UNIT_SIZE;
     }
     public void move() {
+        for(int i = bodyParts; i > 0; i--){
+            x[i] = x[i - 1];
+            y[i] = y[i - 1];
+        }
 
+        switch(direction){
+            case 'U':
+                y[0] = y[0] - UNIT_SIZE;
+                break;
+        }
     }
     public void checkFruit(){
 
